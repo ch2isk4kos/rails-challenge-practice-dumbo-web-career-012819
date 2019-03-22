@@ -1,0 +1,12 @@
+<h1><%= @company.name %></h1>
+
+<ul>
+    <% @company.offices.each do |company| %>
+
+    <li>Building Name: <%= @company.buildings.name %></li>
+    <%# <li>Floor: <%= @company.offices.floor %></li> %>
+
+    <% end %>
+</ul>
+
+<%= link_to "Companies", companies_path %>

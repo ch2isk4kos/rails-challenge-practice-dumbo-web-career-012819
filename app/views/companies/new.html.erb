@@ -1,0 +1,33 @@
+<%= form_for @company do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.collection_select :buildings, Building.all, :id, :name %>
+<%= f.collection_select :employees, Employee.all, :id, :name %>
+
+<%# collection_select's Four Arguments:
+1. :buildings -> the association name (has_many companies thru offices)
+                 the key to the value of the hash
+2. Building.all -> what youre iterating over to put inside the dropdown
+                   a list of existing buildings
+3. :id -> the value="" inside of the option tags
+          tells ___ what you want to pass back to controller
+          (NOT ALWAYS :id !!!)
+4. :name -> what each option will display in the dropdown
+            (building.name)
+%>
+<br>
+<%= f.submit %>
+
+<% end %>
+
+<!-- <select name="company[building]">
+
+    <% Building.all.each do |building| %>
+    <option value="<%= building.id %>">
+        <%= building.name %>
+    </option>
+    <% end %>
+
+</select> -->
